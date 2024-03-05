@@ -1,9 +1,9 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, Form
-from fastapi.responses import StreamingResponse
+from fastapi import FastAPI
+from routers import filters
 
 
 app = FastAPI()
-
+app.include_router(filters.router)
 
 @app.get('/')
 async def root() -> {}:
